@@ -1,4 +1,6 @@
 # simple-autocorrector
+## simpleGuessing()
+
 ## Purpose
 This is a Python script that takes a list of words and attempts to guess what you meant.  
 It is meant for small lists (less than 50 or so) that contain decently diversified words.  The more similar words you have (e.g.: there/here, you/your, place/lace, etc.) the less accurate this corrector becomes.
@@ -114,3 +116,81 @@ grape
 
 However, notice how about half the list has the same confidence.  Exhibit B for why simpleCorrector needs a diverse list.
 
+## advancedGuessing()
+## Purpose
+Better guessing.  Works by looking for substring similarities rather than just bunching letters together.
+simpleGuessing could correct   teh -> the
+advancedGuessing could correct ppl -> apple
+
+## Example
+
+**Input: pple**
+```
+Name:  pple
+dragonfruit has confidence.........  0
+tomato has confidence.........  0
+grape has confidence.........  1
+apple has confidence.........  3
+peach has confidence.........  1
+strawberry has confidence.........  0
+pomegranate has confidence.........  1
+blackberr has confidence.........  1
+pear has confidence.........  1
+blueberry has confidence.........  1
+orange has confidence.........  0
+mango has confidence.........  0
+cantelope has confidence.........  1
+banana has confidence.........  0
+
+
+I believe you meant:   apple
+```
+
+ 
+This is where advancedGuessing surpassing simpleGuessing: I'll add my own fruit called 'wlackberry' to the list at the top.  Because 'strawberry' and 'wlackberry' have the same confidence, the choice closest to the top is selected
+```
+Name:  wberry
+wlackberry has confidence.........  6
+dragonfruit has confidence.........  2
+tomato has confidence.........  0
+grape has confidence.........  1
+apple has confidence.........  1
+peach has confidence.........  1
+strawberry has confidence.........  6
+pomegranate has confidence.........  3
+blackberr has confidence.........  4
+pear has confidence.........  3
+blueberry has confidence.........  5
+orange has confidence.........  2
+mango has confidence.........  0
+cantelope has confidence.........  1
+banana has confidence.........  0
+
+
+I believe you meant:   wlackberry
+```
+
+Whereas the advancedGuessing() spits out...
+```
+Name:  wberry
+wlackberry has confidence.........  3
+dragonfruit has confidence.........  0
+tomato has confidence.........  0
+grape has confidence.........  0
+apple has confidence.........  0
+peach has confidence.........  0
+strawberry has confidence.........  5
+pomegranate has confidence.........  0
+blackberr has confidence.........  3
+pear has confidence.........  0
+blueberry has confidence.........  4
+orange has confidence.........  0
+mango has confidence.........  0
+cantelope has confidence.........  0
+banana has confidence.........  0
+
+
+I believe you meant:   strawberry
+```
+
+because 'wberry' is a substring of strawberry, while only 'berry' is a substring of blackberry (I swear it's typed right in the file), blueberry, and wlackberry.
