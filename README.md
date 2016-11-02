@@ -65,7 +65,7 @@ I believe you meant:
 dragonfruit
 ```
 
-**blueberry forgetting to type straw**
+**blueberry forgetting to type blue**
 ```cmd
 Input:  berry
 The name dragonfruit has a confidence of....2
@@ -91,7 +91,7 @@ strawberry
 There's my point about the well-diversified list.  Using the simpleCorrector, the output just spits out the first item it finds that matches the criteria.
 
 
-**pear, but without the r
+**pear, but without the r**
 ```cmd
 Input:  pea
 The name dragonfruit has a confidence of....1
