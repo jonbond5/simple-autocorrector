@@ -8,7 +8,7 @@ def simpleGuessing():
 
 	# Build a confidence list
 	# The prof with the highest confidence is who we'll return
-	confidence = {prof : 0 for prof in list_of_people}
+	confidence = {prof : 0.0 for prof in list_of_people}
 
 	for prof in list_of_people:
 		for letter in name:
@@ -48,6 +48,14 @@ def advancedGuessing():
 					letter += next(name_iterator)
 			except:
 				break
+		# Greater size difference, less confident
+		confidence[prof] -= abs(len(name) - len(prof)) * 0.1
+		
+
+
+	# Initial confidence rating is done
+	# Now, enhance confidence level based on size, letters given (not in substring), etc.
+
 	for key in confidence:
 		print key + " has confidence.........  " + str(confidence[key])
 	print '\n\nI believe you meant:   ' + max(confidence, key=confidence.get)
