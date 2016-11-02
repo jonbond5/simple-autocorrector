@@ -63,7 +63,7 @@ I believe you meant:
 dragonfruit
 ```
 
-**blueberry forgetting to type straw**
+**blueberry forgetting to type blue**
 ```cmd
 Input:  berry
 The name dragonfruit has a confidence of....2
